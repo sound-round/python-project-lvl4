@@ -8,6 +8,7 @@ authors = ["denis <yudaev1@gmail.com>"]
 python = "^3.8"
 Django = "^3.2.9"
 pytest-cov = "^3.0.0"
+python-dotenv = "^0.19.2"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
