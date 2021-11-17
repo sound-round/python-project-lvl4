@@ -126,6 +126,6 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'task_manager/staticfiles')
 
-STATIC_URL = '/static/'
+STATIC_URL = 'task_manager/static/'
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'task_manager/static/')]
