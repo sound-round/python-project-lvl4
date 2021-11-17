@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+{# Load the tag library #}
+{% load bootstrap4 %}
+{% load i18n %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менеджер задач</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/main.css' %}">
+</head>
+
+{% block content %}
+{% endblock %}
+
+
+</html>
