@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% load i18n %}
+
+{% block content %}
+
+<div>
+    <h1>{% translate "Registration" %}</h1>
+</div>
+
+<form class="body-signin form-signin row justify-content-around text-dark" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-dark" type="submit" value="{% translate 'Register' %}">
+</form>
+
+
+{% endblock content %}
