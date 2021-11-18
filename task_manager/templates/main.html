@@ -19,9 +19,16 @@
     <title>Менеджер задач</title>
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/main.css' %}">
 </head>
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        {% include 'navbar.html' %}
 
-{% block content %}
-{% endblock %}
+        {% block content %}
+        {% endblock %}
+
+        {% include 'footer.html' %}
+    </div>
+</body>
 
 
 </html>

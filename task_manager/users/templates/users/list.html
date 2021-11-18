@@ -4,30 +4,41 @@
 
 {% block content %}
 
-<body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        {% include 'navbar.html' %}
 
-        <div>
-            <h1>Users</h1>
-        </div>
 
-        <div>
-            <ul class="list-group">
-                {% for user in users_list %}
-                    <li class="list-group-item text-secondary"><h3>{{ user }}</h3></li>
-                {% empty %}
-                    <li>No users yet.</li>
-                {% endfor %}
-            </ul>
-        </div>
+<div>
+    <h1>{% translate "Users" %}</h1>
+</div>
 
-        <footer class="mastfoot mt-auto">
-            <div class="inner">
-                <p>This is footer</p>
-            </div>
-        </footer>
-    </div>
-</body>
+<div>
+    <table class="table table-secondary table-striped h5">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">{% translate "Username" %}</th>
+                <th scope="col">{% translate "Fullname" %}</th>
+                <th scope="col">{% translate "Created at" %}</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users_list %}
+            <tr>
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ user.username }}</td>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+                <td>{{ user.date_joined }}</td>
+                <td>
+                    <a class="text-dark" href="#">{% translate "edit" %}</a>
+                    <br>
+                    <a class="text-dark" href="#">{% translate "delete" %}</a>
+                </td>
+            </tr>
+            {% empty %}
+            <p>{% translate "No users yet." %}</p>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% endblock content %}
