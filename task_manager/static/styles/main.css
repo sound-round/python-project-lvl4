@@ -148,6 +148,19 @@
     border-radius: 15px;
   }
 
+  .body-login {
+    height: 40%;
+    display: -ms-flexbox;
+    display: grid;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eeeeee;
+    border-radius: 15px;
+  }
+
+
   .form-signin {
     width: 70%;
     max-width: 1000px;
