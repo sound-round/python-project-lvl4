@@ -16,7 +16,7 @@ class UsersList(ListView):
 
 
 class UserCreate(CreateView):
-    
+
     form_class = UserCreateForm
     template_name = "users/user_create_form.html"
 
@@ -41,5 +41,3 @@ class UserDelete(DeleteView):
     model = User
     template_name = "users/user_confirm_delete.html"
     success_url = reverse_lazy('users-list')
-
-
