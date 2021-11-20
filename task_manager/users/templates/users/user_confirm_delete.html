@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% load i18n %}
+
+{% block content %}
+
+<div>
+    <h1>{% translate "Deleting user" %}</h1>
+</div>
+
+<form class="body-confirm form-signin justify-content-center text-dark" method="post">
+    {% csrf_token %}
+    <p>
+    {% blocktranslate %}Are you sure you want to delete user "{{ object }}"?{% endblocktranslate %}
+    </p>
+    <input class="btn btn-danger" type="submit" value="{% translate 'Confirm' %}">
+    <a class="btn btn-outline-dark" href="{% url 'users-list' %}">{% translate "Back" %}</a>
+</form>
+
+
+{% endblock content %}
