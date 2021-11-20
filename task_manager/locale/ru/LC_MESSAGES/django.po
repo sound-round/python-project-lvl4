@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-18 16:20+0300\n"
+"POT-Creation-Date: 2021-11-20 11:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "Task manager"
 msgstr "Менеджер задач"
 
 #: task_manager/templates/navbar.html:8
-#: task_manager/users/templates/users/list.html:12
+#: task_manager/users/templates/users/list.html:10
 msgid "Users"
 msgstr "Пользователи"
 
@@ -34,31 +34,47 @@ msgid "Login"
 msgstr "Вход"
 
 #: task_manager/templates/navbar.html:11
-msgid "Register"
+msgid "Sign up"
 msgstr "Регистрация"
 
-#: task_manager/users/templates/users/list.html:20
+#: task_manager/users/forms.py:8
+msgid "First name"
+msgstr "Имя"
+
+#: task_manager/users/forms.py:9
+msgid "Last name"
+msgstr "Фамилия"
+
+#: task_manager/users/templates/users/list.html:18
 #, fuzzy
 #| msgid "Users"
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: task_manager/users/templates/users/list.html:21
+#: task_manager/users/templates/users/list.html:19
 msgid "Fullname"
 msgstr "Полное имя"
 
-#: task_manager/users/templates/users/list.html:22
+#: task_manager/users/templates/users/list.html:20
 msgid "Created at"
 msgstr "Дата создания"
 
-#: task_manager/users/templates/users/list.html:34
+#: task_manager/users/templates/users/list.html:32
 msgid "edit"
 msgstr "изменить"
 
-#: task_manager/users/templates/users/list.html:36
+#: task_manager/users/templates/users/list.html:34
 msgid "delete"
 msgstr "удалить"
 
-#: task_manager/users/templates/users/list.html:40
+#: task_manager/users/templates/users/list.html:38
 msgid "No users yet."
-msgstr "Пользователи пока отсутствуют"
+msgstr "Пользователи пока отсутствуют."
+
+#: task_manager/users/templates/users/user_form.html:7
+msgid "Registration"
+msgstr "Регистрация"
+
+#: task_manager/users/templates/users/user_form.html:25
+msgid "Register"
+msgstr "Зарегистрировать"

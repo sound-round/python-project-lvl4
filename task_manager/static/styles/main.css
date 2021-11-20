@@ -125,9 +125,9 @@
   */
 
   .body-signin {
-    height: 65%;
+    height: 100%;
     display: -ms-flexbox;
-    display: flex;
+    display: grid;
     -ms-flex-align: center;
     align-items: center;
     padding-top: 40px;
@@ -136,8 +136,8 @@
     border-radius: 15px;
   }
   .form-signin {
-    width: 100%;
-    max-width: 250px;
+    width: 70%;
+    max-width: 1000px;
     padding: 15px;
     margin: auto;
   }
