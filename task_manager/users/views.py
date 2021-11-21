@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
 from task_manager.users.forms import UserCreateForm, UserUpdateForm
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 
 
 class UsersList(ListView):
@@ -21,7 +21,7 @@ class UserCreate(CreateView):
     template_name = "users/user_create_form.html"
 
     def get_success_url(self):
-        return reverse('index')
+        return reverse('user-login')
 
 
 # @login_required(login_url='login')

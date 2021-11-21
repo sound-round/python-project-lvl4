@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-20 18:46+0300\n"
+"POT-Creation-Date: 2021-11-21 15:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: task_manager/templates/login_form.html:7
 #: task_manager/templates/login_form.html:17
-#: task_manager/templates/navbar.html:16
+#: task_manager/templates/navbar.html:19
 msgid "Log in"
 msgstr "Вход"
 
@@ -48,7 +48,7 @@ msgid "Haven't signed up yet"
 msgstr "Еще не зарегистрированы"
 
 #: task_manager/templates/login_form.html:21
-#: task_manager/templates/navbar.html:17
+#: task_manager/templates/navbar.html:20
 msgid "Sign up"
 msgstr "Регистрация"
 
@@ -61,7 +61,7 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/navbar.html:14
+#: task_manager/templates/navbar.html:16
 msgid "Log out"
 msgstr "Выход"
 
@@ -125,6 +125,14 @@ msgstr "Обновить пользователя"
 #: task_manager/users/templates/users/user_update_form.html:25
 msgid "Update"
 msgstr "Обновить"
+
+#: task_manager/views.py:1
+msgid "Welcome to task-manager"
+msgstr "Добро пожаловать"
+
+#: task_manager/views.py:21
+msgid "Wrong username or password."
+msgstr "Неправильное имя пользователя или пароль."
 
 #~ msgid "Login"
 #~ msgstr "Вход"
