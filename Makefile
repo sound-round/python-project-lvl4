@@ -17,12 +17,10 @@ lint:
 	poetry run flake8 task_manager
 
 test:
-	# poetry run pytest -vv
-	# python3 manage.py test --noinput --verbosity
-	coverage run manage.py test task_manager -v 2
+	poetry run coverage run manage.py test task_manager -v 2
 
 test-log:
 	poetry run pytest -vv -o log_cli=true --log-level debug
 
 test-coverage:
-	coverage xml
+	poetry run coverage xml
