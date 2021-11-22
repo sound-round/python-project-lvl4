@@ -25,4 +25,4 @@ test-log:
 	poetry run pytest -vv -o log_cli=true --log-level debug
 
 test-coverage:
-	coverage report
+	coverage xml
