@@ -18,10 +18,11 @@ lint:
 
 test:
 	# poetry run pytest -vv
-	python3 manage.py test --noinput --verbosity
+	# python3 manage.py test --noinput --verbosity
+	coverage run manage.py test task_manager -v 2
 
 test-log:
 	poetry run pytest -vv -o log_cli=true --log-level debug
 
 test-coverage:
-	coverage run manage.py test task_manager -v 2
+	coverage report
