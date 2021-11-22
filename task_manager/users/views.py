@@ -32,7 +32,7 @@ class UserUpdate(UpdateView):
     template_name = "users/user_update_form.html"
 
     def get_success_url(self):
-        return reverse('index')
+        return reverse('users-list')
 
 
 # @login_required(login_url='login')
