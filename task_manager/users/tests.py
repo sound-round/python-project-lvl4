@@ -17,6 +17,7 @@ class UsersTest(TestCase):
     def test_user_create(self):
         response = self.set_up()
         user = User.objects.get(username='mark')
+        self.assertTrue(isinstance(user, User))
         self.assertEqual(response.status_code, 302)
         self.assertEqual('mark', user.username)
 
