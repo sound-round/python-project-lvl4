@@ -4,15 +4,16 @@ from django.test import Client
 
 
 class UsersTest(TestCase):
+    
+    client = Client()
 
     def set_up(self):
-        client = Client()
         user = {
             'username': 'mark',
             'password1': 'secret-12345',
             'password2': 'secret-12345',
         }
-        return client.post('/users/create/', user)
+        return self.client.post('/users/create/', user)
 
     def test_user_create(self):
         response = self.set_up()
@@ -23,18 +24,18 @@ class UsersTest(TestCase):
 
     def test_user_update(self):
         self.set_up()
-        client = Client()
         user = User.objects.get(username='mark')
         user_id = user.id
         update_data = {'username': 'john'}
-        response = client.post(f'/users/{user_id}/update/', update_data)
+        response = self.client.post(f'/users/{user_id}/update/', update_data)
         user = User.objects.get(id=user_id)
         self.assertEqual(response.status_code, 302)
         self.assertEqual('john', user.username)
 
     def test_user_delete(self):
         self.set_up()
-        client = Client()
         user = User.objects.get(username='mark')
-        client.post(f'/users/{user.id}/delete/')
+        user_id = user.id
+        response = self.client.post(f'/users/{user_id}/delete/')
         self.assertEqual(User.objects.count(), 0)
+        self.assertEqual(response.status_code, 302)
