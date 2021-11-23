@@ -7,7 +7,11 @@ class UsersTest(TestCase):
 
     def set_up(self):
         client = Client()
-        user = {'username': 'mark', 'password1': 'secret-12345', 'password2': 'secret-12345'}
+        user = {
+            'username': 'mark',
+            'password1': 'secret-12345',
+            'password2': 'secret-12345',
+        }
         return client.post('/users/create/', user)
 
     def test_user_create(self):

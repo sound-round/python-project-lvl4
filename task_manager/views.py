@@ -15,7 +15,9 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, f"{_('Welcome to task-manager')}, {username}!")
+            messages.success(
+                request, f"{_('Welcome to task-manager')}, {username}!"
+                )
             return redirect('index')
         else:
             messages.error(request, _('Wrong username or password.'))
