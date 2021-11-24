@@ -9,6 +9,13 @@ class StatusesTest(TestCase):
 
     def set_up(self):
         status = {"name": "new"}
+        user = {
+            'username': 'mark',
+            'password1': 'secret-12345',
+            'password2': 'secret-12345',
+        }
+        self.client.post('/users/create/', user)
+        self.client.login(username='mark', password='secret-12345')
         return self.client.post('/statuses/create/', status)
 
     def test_status_create(self):
