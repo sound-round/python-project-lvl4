@@ -30,9 +30,11 @@
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>{{ user.date_joined }}</td>
                 <td>
+                    {%  if request.user.id == user.id %}
                     <a class="text-dark" href="{% url 'update-user' user.id %}">{% translate "edit" %}</a>
                     <br>
                     <a class="text-dark" href="{% url 'delete-user' user.id %}">{% translate "delete" %}</a>
+                    {% endif %}
                 </td>
             </tr>
             {% empty %}
