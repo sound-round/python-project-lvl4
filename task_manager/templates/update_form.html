@@ -4,10 +4,10 @@
 {% block content %}
 
 <div>
-    <h1>{% translate "Update user" %}</h1>
+    <h1>{% translate header %}</h1>
 </div>
 
-<form class="body-signin form-signin row justify-content-around text-dark" method="post">
+<form class="body-form form-signin row justify-content-around text-dark" method="post">
     {% csrf_token %}
     <!-- {{ form.as_p }} -->
     {% for field in form %}
@@ -22,7 +22,7 @@
         {% endfor %}
         </p>
     {% endfor %}
-    <input class="btn btn-dark" type="submit" value="{% translate 'Update' %}">
+    <input class="btn btn-dark" type="submit" value="{% translate button_name %}">
 </form>
 
 

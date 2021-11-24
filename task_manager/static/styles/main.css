@@ -124,8 +124,8 @@
   * Sign-in form
   */
 
-  .body-signin {
-    height: 100%;
+  /* .body-signin {
+    height: min-content;
     display: -ms-flexbox;
     display: grid;
     -ms-flex-align: center;
@@ -134,7 +134,7 @@
     padding-bottom: 40px;
     background-color: #eeeeee;
     border-radius: 15px;
-  }
+  } */
 
   .body-confirm {
     /* height: 100%; */
@@ -148,24 +148,23 @@
     border-radius: 15px;
   }
 
-  .body-login {
-    height: 40%;
+  .body-form {
+    height: auto;
     display: -ms-flexbox;
     display: grid;
     -ms-flex-align: center;
     align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 100px;
     background-color: #eeeeee;
     border-radius: 15px;
   }
 
 
   .form-signin {
-    width: 70%;
+    width: max-content;
     max-width: 1000px;
-    padding: 15px;
-    margin: auto;
+    padding: 40px;
+    margin:auto;
   }
   .form-signin .checkbox {
     font-weight: 400;

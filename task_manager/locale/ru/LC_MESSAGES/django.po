@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-21 15:52+0300\n"
+"POT-Creation-Date: 2021-11-24 15:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,9 +20,49 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
+#: task_manager/statuses/templates/statuses/list.html:9
+#: task_manager/templates/navbar.html:9
+msgid "Statuses"
+msgstr "Статусы"
+
+#: task_manager/statuses/templates/statuses/list.html:11
+msgid "Create status"
+msgstr "Создать статус"
+
+#: task_manager/statuses/templates/statuses/list.html:17
+msgid "Name"
+msgstr "Имя"
+
+#: task_manager/statuses/templates/statuses/list.html:18
+#: task_manager/users/templates/users/list.html:20
+msgid "Created at"
+msgstr "Дата создания"
+
+#: task_manager/statuses/templates/statuses/list.html:29
+#: task_manager/users/templates/users/list.html:32
+msgid "edit"
+msgstr "изменить"
+
+#: task_manager/statuses/templates/statuses/list.html:31
+#: task_manager/users/templates/users/list.html:34
+msgid "delete"
+msgstr "удалить"
+
+#: task_manager/statuses/templates/statuses/list.html:35
+#, fuzzy
+#| msgid "No users yet."
+msgid "No statuses yet."
+msgstr "Пользователи пока отсутствуют."
+
+#: task_manager/templates/confirm_delete.html:13
+#: task_manager/users/templates/users/user_confirm_delete.html:13
+#, python-format
+msgid "Are you sure you want to delete \"%(object)s\"?"
+msgstr "Вы уверены, что хотите удалить \"%(object)s\"?"
+
 #: task_manager/templates/login_form.html:7
 #: task_manager/templates/login_form.html:17
-#: task_manager/templates/navbar.html:19
+#: task_manager/templates/navbar.html:20
 msgid "Log in"
 msgstr "Вход"
 
@@ -48,7 +88,7 @@ msgid "Haven't signed up yet"
 msgstr "Еще не зарегистрированы"
 
 #: task_manager/templates/login_form.html:21
-#: task_manager/templates/navbar.html:20
+#: task_manager/templates/navbar.html:21
 msgid "Sign up"
 msgstr "Регистрация"
 
@@ -61,7 +101,7 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/navbar.html:16
+#: task_manager/templates/navbar.html:17
 msgid "Log out"
 msgstr "Выход"
 
@@ -77,18 +117,6 @@ msgstr "Фамилия"
 msgid "Fullname"
 msgstr "Полное имя"
 
-#: task_manager/users/templates/users/list.html:20
-msgid "Created at"
-msgstr "Дата создания"
-
-#: task_manager/users/templates/users/list.html:32
-msgid "edit"
-msgstr "изменить"
-
-#: task_manager/users/templates/users/list.html:34
-msgid "delete"
-msgstr "удалить"
-
 #: task_manager/users/templates/users/list.html:38
 msgid "No users yet."
 msgstr "Пользователи пока отсутствуют."
@@ -96,11 +124,6 @@ msgstr "Пользователи пока отсутствуют."
 #: task_manager/users/templates/users/user_confirm_delete.html:7
 msgid "Deleting user"
 msgstr "Удаление пользователя"
-
-#: task_manager/users/templates/users/user_confirm_delete.html:13
-#, python-format
-msgid "Are you sure you want to delete user \"%(object)s\"?"
-msgstr "Вы уверены, что хотите удалить пользователя \"%(object)s\"?"
 
 #: task_manager/users/templates/users/user_confirm_delete.html:15
 msgid "Confirm"
@@ -110,14 +133,6 @@ msgstr "Подтвердить"
 msgid "Back"
 msgstr "Назад"
 
-#: task_manager/users/templates/users/user_create_form.html:7
-msgid "Registration"
-msgstr "Регистрация"
-
-#: task_manager/users/templates/users/user_create_form.html:25
-msgid "Register"
-msgstr "Зарегистрировать"
-
 #: task_manager/users/templates/users/user_update_form.html:7
 msgid "Update user"
 msgstr "Обновить пользователя"
@@ -126,13 +141,18 @@ msgstr "Обновить пользователя"
 msgid "Update"
 msgstr "Обновить"
 
-#: task_manager/views.py:1
-msgid "Welcome to task-manager"
-msgstr "Добро пожаловать"
-
-#: task_manager/views.py:21
+#: task_manager/views.py:23
 msgid "Wrong username or password."
 msgstr "Неправильное имя пользователя или пароль."
+
+#~ msgid "Registration"
+#~ msgstr "Регистрация"
+
+#~ msgid "Register"
+#~ msgstr "Зарегистрировать"
+
+#~ msgid "Welcome to task-manager"
+#~ msgstr "Добро пожаловать"
 
 #~ msgid "Login"
 #~ msgstr "Вход"

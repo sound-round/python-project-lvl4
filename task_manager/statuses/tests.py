@@ -2,8 +2,9 @@ from django.test import TestCase
 from django.test import Client
 from task_manager.statuses.models import Status
 
+
 class StatusesTest(TestCase):
-    
+
     client = Client()
 
     def set_up(self):
@@ -22,7 +23,9 @@ class StatusesTest(TestCase):
         status = Status.objects.get(name="new")
         status_id = status.id
         update_data = {'name': 'done'}
-        response = self.client.post(f'/statuses/{status_id}/update/', update_data)
+        response = self.client.post(
+            f'/statuses/{status_id}/update/', update_data
+        )
         status = Status.objects.get(id=status_id)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(status.name, 'done')
@@ -31,6 +34,8 @@ class StatusesTest(TestCase):
         self.set_up()
         status = Status.objects.get(name="new")
         status_id = status.id
-        response = self.client.post(f'/statuses/{status_id}/delete/')
+        response = self.client.post(
+            f'/statuses/{status_id}/delete/'
+        )
         self.assertEqual(Status.objects.count(), 0)
         self.assertEqual(response.status_code, 302)

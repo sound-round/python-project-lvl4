@@ -4,7 +4,7 @@ from django.test import Client
 
 
 class UsersTest(TestCase):
-    
+
     client = Client()
 
     def set_up(self):
