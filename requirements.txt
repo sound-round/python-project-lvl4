@@ -68,4 +68,5 @@ sqlparse==0.4.2; python_version >= "3.6" \
 whitenoise==5.3.0; python_version >= "3.5" and python_version < "4" \
     --hash=sha256:d963ef25639d1417e8a247be36e6aedd8c7c6f0a08adcb5a89146980a96b577c \
     --hash=sha256:d234b871b52271ae7ed6d9da47ffe857c76568f11dd30e28e18c5869dbd11e12
-coverage==6.1.2
+coverage==6.1.2;
+    --hash=sha256:a34fccb45f7b2d890183a263578d60a392a1a218fdc12f5bce1477a6a68d4373
