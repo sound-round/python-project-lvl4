@@ -3,7 +3,8 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
-from task_manager.users.forms import UserCreateForm, UserUpdateForm
+from django.contrib.auth.views import PasswordChangeView
+from task_manager.users.forms import UserCreateForm, UserUpdateForm, PasswordUpdateForm
 # from django.contrib.auth.decorators import login_required
 
 
@@ -41,6 +42,7 @@ class UserUpdate(UpdateView):
         context = super().get_context_data(**kwargs)
         context['header'] = "Update user"
         context['button_name'] = "Update"
+        context['page'] = "update_user"
         return context
 
     def get_success_url(self):
@@ -60,3 +62,17 @@ class UserDelete(DeleteView):
     model = User
     template_name = "confirm_delete.html"
     success_url = reverse_lazy('users-list')
+
+
+class PasswordUpdate(PasswordChangeView):
+
+    from_class = PasswordUpdateForm
+    model = User
+    template_name = "update_form.html"
+    success_url = reverse_lazy('users-list')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['header'] = "Change password"
+        context['button_name'] = "Change"
+        return context
