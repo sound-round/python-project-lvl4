@@ -7,13 +7,14 @@
     <h1>{% translate "Log in" %}</h1>
 </div>
 
-<form class="body-login form-signin row justify-content-around text-dark" method="post">
+<form class="body-form form-signin row justify-content-around text-dark" method="post">
     {% csrf_token %}
     <!-- {{ form.as_p }} -->
     <label>{% translate "Username" %}:</label>
     <input type='text' name='username' placeholder="{% translate 'Enter username' %}">
     <label>{% translate "Password" %}:</label>
     <input type='text' name='password' placeholder="{% translate 'Enter password' %}">
+    <br>
     <input class="btn btn-dark" type="submit" value="{% translate 'Log in' %}">
 </form>
 <hr>
