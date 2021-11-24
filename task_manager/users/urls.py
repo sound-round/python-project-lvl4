@@ -7,5 +7,9 @@ urlpatterns = [
     path('create/', views.UserCreate.as_view(), name='create-user'),
     path('<int:pk>/update/', views.UserUpdate.as_view(), name='update-user'),
     path('<int:pk>/delete/', views.UserDelete.as_view(), name='delete-user'),
-    path('<int:pk>/password/', views.PasswordUpdate.as_view(), name='update-password'),
+    path(
+        '<int:pk>/password/',
+        views.PasswordUpdate.as_view(),
+        name='update-password'
+    ),
 ]

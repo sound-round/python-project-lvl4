@@ -4,7 +4,8 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
 from django.contrib.auth.views import PasswordChangeView
-from task_manager.users.forms import UserCreateForm, UserUpdateForm, PasswordUpdateForm
+from task_manager.users.forms import UserCreateForm, \
+                                        UserUpdateForm, PasswordUpdateForm
 # from django.contrib.auth.decorators import login_required
 
 
