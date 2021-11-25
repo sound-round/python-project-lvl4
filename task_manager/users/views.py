@@ -57,6 +57,8 @@ class UserUpdate(UpdateView):
 # @login_required(login_url='login')
 class UserDelete(DeleteView):
 
+    success_message = _("User was deleted successfully.")
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['header'] = "Delete user"
