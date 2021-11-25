@@ -76,7 +76,6 @@ class StatusDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
             messages.error(self.request, error_message)
             return HttpResponseRedirect(reverse('statuses-list'))
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['header'] = "Delete status"

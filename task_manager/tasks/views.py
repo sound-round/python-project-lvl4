@@ -82,7 +82,8 @@ class TaskDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
             messages.success(self.request, self.success_message)
             return super(TaskDelete, self).delete(request, *args, **kwargs)
         error_message = _(
-                'Not possible to delete the task because you are not the author.'
+                'Not possible to delete the task'
+                'because you are not the author.'
             )
         messages.error(self.request, error_message)
         return HttpResponseRedirect(reverse('users-list'))

@@ -24,7 +24,7 @@ class Task(models.Model):
         on_delete=models.PROTECT, blank=True, null=True,
     )
     author = models.ForeignKey(
-        User, related_name='author', on_delete=models.PROTECT, null=True, 
+        User, related_name='author', on_delete=models.PROTECT, null=True,
     )
     created = models.DateTimeField(auto_now_add=True)
 
