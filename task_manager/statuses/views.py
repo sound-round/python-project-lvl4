@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.contrib import messages
-from django.db.models import RestrictedError
+from django.db.models import ProtectedError¶
 from task_manager.statuses.models import Status
 from task_manager.statuses.forms import StatusForm
 
@@ -67,7 +67,7 @@ class StatusDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     def post(self, request, *args, **kwargs):
         try:
             return self.delete(request, *args, **kwargs)
-        except RestrictedError:
+        except ProtectedError¶:
             error_message = _(
                 'Not possible to delete the status because it is being used.'
             )
