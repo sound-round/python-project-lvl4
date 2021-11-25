@@ -21,7 +21,7 @@ class TasksTest(TestCase):
             'password2': 'secret-12345',
         }
         status = {"name": "new"}
-       
+
         self.client.post('/users/create/', user1)
         self.client.post('/users/create/', user2)
         self.client.login(username='mark', password='secret-12345')
