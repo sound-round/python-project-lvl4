@@ -29,20 +29,19 @@ class TasksTest(TestCase):
 
         executor = User.objects.get(username='john')
         status = Status.objects.get(name='new')
-
+        self.status = status
         task = {
-            'name': 'Add new feature',
+            'name': 'Feature',
             'description': 'test description',
-            'status': status,
-            'executor': executor,
-            'tags': ['tag1', 'tag2'],
+            'status': status.id,
+            'executor': executor.id,
         }
 
         return self.client.post('/tasks/create/', task)
 
     def test_task_create(self):
         response = self.set_up()
-        task = Task.objects.get(name="Add new feature")
+        task = Task.objects.get(name="Feature")
         self.assertTrue(isinstance(task, Task))
         self.assertEqual(response.status_code, 302)
         self.assertEqual('test description', task.description)
@@ -50,9 +49,12 @@ class TasksTest(TestCase):
 
     def test_task_update(self):
         self.set_up()
-        task = Task.objects.get(name="Add new feature")
+        task = Task.objects.get(name="Feature")
         task_id = task.id
-        update_data = {'description': 'Updated description'}
+        update_data = {
+            'description': 'Updated description',
+            'status': self.status.id,
+            }
         response = self.client.post(
             f'/tasks/{task_id}/update/', update_data
         )
@@ -62,7 +64,7 @@ class TasksTest(TestCase):
 
     def test_task_delete(self):
         self.set_up()
-        task = Task.objects.get(name="Add new feature")
+        task = Task.objects.get(name="Feature")
         task_id = task.id
         response = self.client.post(
             f'/tasks/{task_id}/delete/'

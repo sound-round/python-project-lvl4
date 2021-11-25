@@ -1,9 +1,13 @@
 # from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
+from django.http import HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
 from django.contrib.auth.views import PasswordChangeView
+from django.contrib import messages
+from django.db.models import ProtectedError
+from django.utils.translation import ugettext as _
 from task_manager.users.forms import UserCreateForm, \
                                         UserUpdateForm, PasswordUpdateForm
 # from django.contrib.auth.decorators import login_required
@@ -59,6 +63,21 @@ class UserDelete(DeleteView):
         context['button_name'] = "Confirm"
         context['back_button'] = "Back"
         return context
+
+    def delete(self, request, *args, **kwargs):
+        super(UserDelete, self).delete(request, *args, **kwargs)
+        messages.success(self.request, self.success_message)
+        return HttpResponseRedirect(reverse('users-list'))
+
+    def post(self, request, *args, **kwargs):
+        try:
+            return self.delete(request, *args, **kwargs)
+        except ProtectedError:
+            error_message = _(
+                'Not possible to delete this user because it is being used.'
+            )
+            messages.error(self.request, error_message)
+            return HttpResponseRedirect(reverse('users-list'))
 
     model = User
     template_name = "confirm_delete.html"

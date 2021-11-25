@@ -1,5 +1,6 @@
 # from django.http import request
 from django.urls import reverse
+from django.http import HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
@@ -76,8 +77,15 @@ class TaskDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     success_message = _("Task was deleted successfully.")
 
     def delete(self, request, *args, **kwargs):
-        messages.success(self.request, self.success_message)
-        return super(TaskDelete, self).delete(request, *args, **kwargs)
+        self.object = self.get_object()
+        if request.user.id == self.object.author.id:
+            messages.success(self.request, self.success_message)
+            return super(TaskDelete, self).delete(request, *args, **kwargs)
+        error_message = _(
+                'Not possible to delete the task because you are not the author.'
+            )
+        messages.error(self.request, error_message)
+        return HttpResponseRedirect(reverse('users-list'))
 
     def post(self, request, *args, **kwargs):
         try:

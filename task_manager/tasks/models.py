@@ -15,15 +15,16 @@ class Tag(models.Model):
 
 
 class Task(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.TextField(blank=True)
-    status = models.ForeignKey(Status, on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length=50, blank=True)
+    description = models.TextField(blank=True, null=True)
+    status = models.ForeignKey(Status, on_delete=models.PROTECT, null=True)
     tags = models.ManyToManyField(Tag, related_name='tags', blank=True)
     executor = models.ForeignKey(
-        User, related_name='executor', on_delete=models.CASCADE, null=True
+        User, related_name='executor',
+        on_delete=models.PROTECT, blank=True, null=True,
     )
     author = models.ForeignKey(
-        User, related_name='author', on_delete=models.CASCADE, null=True
+        User, related_name='author', on_delete=models.PROTECT, null=True, 
     )
     created = models.DateTimeField(auto_now_add=True)
 

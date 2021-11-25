@@ -1,5 +1,6 @@
 # from django.http import request
 from django.urls import reverse
+from django.http import HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -61,8 +62,9 @@ class StatusDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     success_message = _("Status was deleted successfully.")
 
     def delete(self, request, *args, **kwargs):
+        super(StatusDelete, self).delete(request, *args, **kwargs)
         messages.success(self.request, self.success_message)
-        return super(StatusDelete, self).delete(request, *args, **kwargs)
+        return HttpResponseRedirect(reverse('statuses-list'))
 
     def post(self, request, *args, **kwargs):
         try:
@@ -72,7 +74,8 @@ class StatusDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
                 'Not possible to delete the status because it is being used.'
             )
             messages.error(self.request, error_message)
-            return reverse('statuses-list')
+            return HttpResponseRedirect(reverse('statuses-list'))
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
