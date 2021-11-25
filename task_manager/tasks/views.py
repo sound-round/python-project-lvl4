@@ -2,6 +2,7 @@
 from django.urls import reverse
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
@@ -18,6 +19,12 @@ class TasksList(ListView):
     model = Task
     template_name = "tasks/list.html"
     context_object_name = 'tasks_list'
+
+
+class TaskDetail(DetailView):
+    model = Task
+    template_name = "tasks/detail.html"
+    context_object_name = 'task'
 
 
 class TaskCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):

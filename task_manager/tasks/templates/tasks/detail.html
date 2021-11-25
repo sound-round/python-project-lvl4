@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+{% load i18n %}
+
+{% block content %}
+
+<div>
+    <h1>{% translate "Task detail" %}</h1>
+</div>
+
+<div class="card text-dark">
+    <div class="card-header bg-secondary text-white">
+      <h2>{{ task.name }}</h2>
+    </div>
+    <div class="card-body bg-light">
+      <p>{{ task.description }}</p>
+      <hr>
+      <div class="container">
+        <div class="row p-1">
+          <div class="col">{% translate "Author" %}</div>
+          <div class="col">{{ task.author }}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col">{% translate "Executor" %}</div>
+          <div class="col">{{ task.executor }}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col">{% translate "Status" %}</div>
+          <div class="col">{{ task.status }}</div>
+        </div>
+        <div class="row p-1">
+          <div class="col">{% translate "Created at" %}</div>
+          <div class="col">{{ task.created }}</div>
+        </div>
+        <br>
+        <div class="p-1">
+          <div class="col">
+            <h6>{% translate "Tags" %}</h6>
+            <ul class="list-unstyled d-inline-flex">
+                {% for tag in task.tags.all %}
+                <li>| {{ tag }} |</li>
+                {% endfor %}
+            </ul>
+          </div>
+          <div class="col"></div>
+        </div>
+        <div class="row p-1">
+          <div class="col">
+            <a class="text-dark" href="{% url 'update-task' task.id %}">{% translate "edit" %}</a>
+            <br>
+            <a class="text-dark" href="{% url 'delete-task' task.id %}">{% translate "delete" %}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock content %}

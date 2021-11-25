@@ -3,7 +3,7 @@ from task_manager.tasks import views
 
 urlpatterns = [
     path('', views.TasksList.as_view(), name='tasks-list'),
-    # path('<int:pk>/', views.TaskDetail.as_view(), name='detail-task'),
+    path('<int:pk>/', views.TaskDetail.as_view(), name='detail-task'),
     path('create/', views.TaskCreate.as_view(), name='create-task'),
     path(
         '<int:pk>/update/',
