@@ -8,7 +8,12 @@ class Task(models.Model):
     name = models.CharField(max_length=50, blank=True)
     description = models.TextField(blank=True, null=True)
     status = models.ForeignKey(Status, on_delete=models.PROTECT, null=True)
-    labels = models.ManyToManyField(Label, related_name='labels', blank=True)
+    labels = models.ManyToManyField(
+        Label, related_name='labels',
+        through='Labeling',
+        through_fields=('task', 'label'),
+        blank=True,
+    )
     executor = models.ForeignKey(
         User, related_name='executor',
         on_delete=models.PROTECT, blank=True, null=True,
@@ -24,3 +29,8 @@ class Task(models.Model):
     class Meta:
         ordering = ['-created']
         verbose_name_plural = "Tasks"
+
+
+class Labeling(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.PROTECT)
+    label = models.ForeignKey(Label, on_delete=models.PROTECT)
