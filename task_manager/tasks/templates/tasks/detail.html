@@ -34,10 +34,10 @@
         <br>
         <div class="p-1">
           <div class="col">
-            <h6>{% translate "Tags" %}</h6>
+            <h6>{% translate "Labels" %}</h6>
             <ul class="list-unstyled d-inline-flex">
-                {% for tag in task.tags.all %}
-                <li>| {{ tag }} |</li>
+                {% for label in task.labels.all %}
+                <li>| {{ label }} |</li>
                 {% endfor %}
             </ul>
           </div>

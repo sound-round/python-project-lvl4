@@ -8,6 +8,7 @@
         <a href="/users" class="btn btn-secondary m-3 mr-5">{% translate "Users" %}</a>
         <a href="/tasks" class="btn btn-secondary m-3 mr-5">{% translate "Tasks" %}</a>
         <a href="/statuses" class="btn btn-secondary m-3 mr-5">{% translate "Statuses" %}</a>
+        <a href="/labels" class="btn btn-secondary m-3 mr-5">{% translate "Labels" %}</a>
         {% if request.user.is_authenticated %}
         <h3 class="m-3 mr-5">{{ request.user}}</h3>
         {% endif %}
