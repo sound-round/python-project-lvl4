@@ -22,7 +22,9 @@ class TasksList(ListView):
     context_object_name = 'tasks_list'
 
 
-class TaskDetail(DetailView):
+class TaskDetail(LoginRequiredMixin, DetailView):
+
+    login_url = '/login/'
     model = Task
     template_name = "tasks/detail.html"
     context_object_name = 'task'
