@@ -14,6 +14,7 @@ import os
 import dj_database_url
 from dotenv import load_dotenv
 from django.contrib.messages import constants as messages
+import rollbar
 
 
 load_dotenv()
@@ -32,6 +33,14 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = bool(os.environ.get('DEBUG'))
 
 ALLOWED_HOSTS = ['127.0.0.1', 'task-manager-sr.herokuapp.com']
+
+
+ROLLBAR = {
+    'access_token': 'd07bf3755bcb4656b33c640995638b6f',
+    'environment': 'development' if DEBUG else 'production',
+    'root': BASE_DIR,
+}
+rollbar.init(**ROLLBAR)
 
 
 MESSAGE_TAGS = {
@@ -71,6 +80,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 ROOT_URLCONF = 'task_manager.urls'
