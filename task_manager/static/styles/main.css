@@ -119,27 +119,8 @@
   color: rgba(255, 255, 255, .5);
   }
 
-
-  /*
-  * Sign-in form
-  */
-
-  /* .body-signin {
-    height: min-content;
-    display: -ms-flexbox;
-    display: grid;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #eeeeee;
-    border-radius: 15px;
-  } */
-
   .body-confirm {
-    /* height: 100%; */
     display: -ms-flexbox;
-    /* display: grid; */
     -ms-flex-align: center;
     align-items: center;
     padding-top: 40px;
@@ -158,7 +139,6 @@
     background-color: #eeeeee;
     border-radius: 15px;
   }
-
 
   .form-signin {
     width: max-content;

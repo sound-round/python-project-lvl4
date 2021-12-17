@@ -2,12 +2,31 @@
 {% load i18n %}
 
 {% block content %}
-
-
-
 <div>
     <h1>{% translate "Tasks" %}</h1>
 </div>
+
+<div>
+    <form class="form-signin" method="get">
+        <!-- {{ filter.form }} -->
+        <div class="row">
+        {% for field in filter.form  %}
+            <div class="col-sm-2">
+                <b>{% translate field.label_tag %}</b> {{ field }} 
+            </div>
+        {% endfor %}
+        </div>
+        <div>
+            <input class="form-check-input" type="checkbox" id="id_self_tasks" name="self_tasks">
+            <label class="form-check-label" for="id_self_tasks">{% translate "Only my tasks" %}</label>
+
+        </div>
+        
+        <br>
+        <input class="btn btn-light" type="submit" value="{% translate 'Find' %}">
+    </form>
+</div>
+<br>
 <a class="btn btn-secondary m-3" style="width: 150px" href="{% url 'create-task' %}">{% translate "Create task" %}</a>
 <div>
     <table class="table table-secondary table-striped h5">
@@ -23,7 +42,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for task in tasks_list %}
+            {% for task in filter.qs %}
             <tr>
                 <th scope="row">{{ task.id }}</th>
                 <td><a class="text-dark" href="{% url 'detail-task' task.id %}">{{ task.name }}</a></td>

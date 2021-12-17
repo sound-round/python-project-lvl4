@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from task_manager.statuses.models import Status
 from task_manager.labels.models import Label
+import django_filters
 
 
 class Task(models.Model):
@@ -34,3 +35,28 @@ class Task(models.Model):
 class Labeling(models.Model):
     task = models.ForeignKey(Task, on_delete=models.PROTECT)
     label = models.ForeignKey(Label, on_delete=models.PROTECT)
+
+
+class TaskFilter(django_filters.FilterSet):
+
+    status = django_filters.ModelChoiceFilter(
+        field_name='status',
+        queryset=Status.objects.all(),
+    )
+    executor = labels = django_filters.ModelChoiceFilter(
+        field_name='executor',
+        queryset=User.objects.all(),
+    )
+    labels = django_filters.ModelChoiceFilter(
+        field_name='labels',
+        queryset=Label.objects.all(),
+    )
+
+    @property
+    def qs(self):
+        tasks = super().qs
+
+        if self.request.GET.get('self_tasks', None):
+            executor = self.request.user.id
+            return tasks.filter(executor=executor)
+        return tasks

@@ -1,7 +1,6 @@
 # from django.http import request
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -11,15 +10,6 @@ from django.contrib import messages
 from django.db.models import ProtectedError
 from task_manager.tasks.models import Task
 from task_manager.tasks.forms import TaskForm
-# from task_manager.statuses.models import Status
-# from task_manager.statuses.forms import StatusForm
-
-
-class TasksList(ListView):
-
-    model = Task
-    template_name = "tasks/list.html"
-    context_object_name = 'tasks_list'
 
 
 class TaskDetail(LoginRequiredMixin, DetailView):

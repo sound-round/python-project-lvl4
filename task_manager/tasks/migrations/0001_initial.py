@@ -19,21 +19,46 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Labeling',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('label', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='labels.label')),
+                ('id', models.BigAutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID'
+                )),
+                ('label', models.ForeignKey(
+                    on_delete=django.db.models.deletion.PROTECT,
+                    to='labels.label'
+                )),
             ],
         ),
         migrations.CreateModel(
             name='Task',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, max_length=50)),
-                ('description', models.TextField(blank=True, null=True)),
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True, serialize=False, verbose_name='ID'
+                    )),
+                ('name', models.CharField(
+                    blank=True, max_length=50
+                    )),
+                ('description', models.TextField(
+                    blank=True, null=True
+                )),
                 ('created', models.DateTimeField(auto_now_add=True)),
-                ('author', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, related_name='author', to=settings.AUTH_USER_MODEL)),
-                ('executor', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='executor', to=settings.AUTH_USER_MODEL)),
-                ('labels', models.ManyToManyField(blank=True, related_name='labels', through='tasks.Labeling', to='labels.Label')),
-                ('status', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='statuses.status')),
+                ('author', models.ForeignKey(
+                    null=True, on_delete=django.db.models.deletion.PROTECT,
+                    related_name='author', to=settings.AUTH_USER_MODEL
+                    )),
+                ('executor', models.ForeignKey(
+                    blank=True, null=True,
+                    on_delete=django.db.models.deletion.PROTECT,
+                    related_name='executor', to=settings.AUTH_USER_MODEL
+                    )),
+                ('labels', models.ManyToManyField(
+                    blank=True, related_name='labels',
+                    through='tasks.Labeling', to='labels.Label'
+                )),
+                ('status', models.ForeignKey(
+                    null=True, on_delete=django.db.models.deletion.PROTECT,
+                    to='statuses.status')),
             ],
             options={
                 'verbose_name_plural': 'Tasks',
@@ -43,6 +68,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='labeling',
             name='task',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='tasks.task'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                to='tasks.task'),
         ),
     ]
