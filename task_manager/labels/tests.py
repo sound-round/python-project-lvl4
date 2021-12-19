@@ -7,7 +7,7 @@ class LablesTest(TestCase):
 
     client = Client()
 
-    def set_up(self):
+    def setUp(self):
         label = {"name": "new label"}
         user = {
             'username': 'mark',
@@ -19,14 +19,11 @@ class LablesTest(TestCase):
         return self.client.post('/labels/create/', label)
 
     def test_label_create(self):
-        response = self.set_up()
         label = Label.objects.get(name="new label")
         self.assertTrue(isinstance(label, Label))
-        self.assertEqual(response.status_code, 302)
         self.assertEqual('new label', label.name)
 
     def test_label_update(self):
-        self.set_up()
         label = Label.objects.get(name="new label")
         label_id = label.id
         update_data = {'name': 'updated label'}
@@ -38,7 +35,6 @@ class LablesTest(TestCase):
         self.assertEqual(label.name, 'updated label')
 
     def test_label_delete(self):
-        self.set_up()
         label = Label.objects.get(name="new label")
         label_id = label.id
         response = self.client.post(

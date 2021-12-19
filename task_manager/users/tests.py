@@ -7,7 +7,7 @@ class UsersTest(TestCase):
 
     client = Client()
 
-    def set_up(self):
+    def setUp(self):
         user = {
             'username': 'mark',
             'password1': 'secret-12345',
@@ -15,15 +15,12 @@ class UsersTest(TestCase):
         }
         return self.client.post('/users/create/', user)
 
-    def test_user_create(self):
-        response = self.set_up()
+    def test_user_read(self):
         user = User.objects.get(username='mark')
         self.assertTrue(isinstance(user, User))
-        self.assertEqual(response.status_code, 302)
         self.assertEqual('mark', user.username)
 
     def test_user_update(self):
-        self.set_up()
         user = User.objects.get(username='mark')
         user_id = user.id
         update_data = {'username': 'john'}
@@ -33,7 +30,6 @@ class UsersTest(TestCase):
         self.assertEqual('john', user.username)
 
     def test_user_delete(self):
-        self.set_up()
         user = User.objects.get(username='mark')
         user_id = user.id
         response = self.client.post(f'/users/{user_id}/delete/')

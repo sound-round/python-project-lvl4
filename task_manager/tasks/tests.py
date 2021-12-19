@@ -9,7 +9,7 @@ class TasksTest(TestCase):
 
     client = Client()
 
-    def set_up(self):
+    def setUp(self):
         user1 = {
             'username': 'mark',
             'password1': 'secret-12345',
@@ -39,16 +39,13 @@ class TasksTest(TestCase):
 
         return self.client.post('/tasks/create/', task)
 
-    def test_task_create(self):
-        response = self.set_up()
+    def test_task_read(self):
         task = Task.objects.get(name="Feature")
         self.assertTrue(isinstance(task, Task))
-        self.assertEqual(response.status_code, 302)
         self.assertEqual('test description', task.description)
         self.assertEqual('mark', task.author.username)
 
     def test_task_update(self):
-        self.set_up()
         task = Task.objects.get(name="Feature")
         task_id = task.id
         update_data = {
@@ -63,7 +60,6 @@ class TasksTest(TestCase):
         self.assertEqual(task.description, 'Updated description')
 
     def test_task_delete(self):
-        self.set_up()
         task = Task.objects.get(name="Feature")
         task_id = task.id
         response = self.client.post(
