@@ -1,28 +1,36 @@
 {% load i18n %}
 
-<header class="masthead mb-auto">
-    <div class="inner">
-        <h3 class="masthead-brand m-3"><a class="navbar-brand" href='/'>{% translate "Task manager" %}</a></h3>
-        <nav class="nav nav-masthead justify-content-center">
+
+<nav class="navbar navbar-light fixed-top" style="background-color: rgba(214, 214, 214, 0.548)">
+    <div class="container-fluid">
         
-        <a href="/users" class="btn btn-secondary m-3 mr-5">{% translate "Users" %}</a>
-        <a href="/tasks" class="btn btn-secondary m-3 mr-5">{% translate "Tasks" %}</a>
-        <a href="/statuses" class="btn btn-secondary m-3 mr-5">{% translate "Statuses" %}</a>
-        <a href="/labels" class="btn btn-secondary m-3 mr-5">{% translate "Labels" %}</a>
-        {% if request.user.is_authenticated %}
-        <h3 class="m-3 mr-5">{{ request.user}}</h3>
-        {% endif %}
-        <div class='row m-3'>
+        <div class=''>
+            <a href='/' class="navbar-brand">{% translate "Task-manager" %}</a>
+            <a href="/users" class="btn btn-outline-dark m-2">{% translate "Users" %}</a>   
+            <a href="/tasks" class="btn btn-outline-dark m-2">{% translate "Tasks" %}</a>
+            <a href="/statuses" class="btn btn-outline-dark m-2">{% translate "Statuses" %}</a>
+            <a href="/labels" class="btn btn-outline-dark m-2">{% translate "Labels" %}</a>
+        </div>
+
+        <div class='d-flex'>
             {% if request.user.is_authenticated %}
-            <form action="/logout/" method="post">
-                {% csrf_token %}
-                <input class="btn nav-link" type="submit" value="{% translate 'Log out' %}">
-            </form>
-            {% else %}
-            <a class="nav-link" href="{% url 'user-login' %}">{% translate "Log in" %}</a>
-            <a class="nav-link" href="{% url 'create-user' %}">{% translate "Sign up" %}</a>
+            <div>
+                <h3 class="text-dark">@{{ request.user}}</h3>
+            </div>
             {% endif %}
-        </div>   
-        </nav>
+            <div>
+                {% if request.user.is_authenticated %}
+                <form action="/logout/" method="post">
+                    {% csrf_token %}
+                    <input class="btn nav-link text-dark" type="submit" value="{% translate 'Log out' %}">
+                </form>
+                {% else %}
+                <a class="nav-link text-light" href="{% url 'user-login' %}">{% translate "Log in" %}</a>
+                <a class="nav-link text-light" href="{% url 'create-user' %}">{% translate "Sign up" %}</a>
+                {% endif %}
+            </div>
+    
+        </div>
+        
     </div>
-</header>
+</nav>
