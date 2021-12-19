@@ -6,29 +6,28 @@
 <div>
     <h1>{% translate header %}</h1>
 </div>
-
-<form class="body-form form-signin row justify-content-around text-dark" method="post">
-    {% csrf_token %}
-    <!-- {{ form.as_p }} -->
-    {% for field in form %}
-        <p>
-        {% translate field.label_tag %}<br>
-        {{ field }}<br>
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-        </p>
-    {% endfor %}
-    {% if page == "update_user" %}
-    <a class="btn btn-outline-dark" href="{% url 'update-password' request.user.id %}">{% translate "Change password" %}</a>
-    <br>
-    {% endif %}
-
-    <input class="btn btn-dark" type="submit" value="{% translate button_name %}">
-</form>
-
+<div class='d-flex justify-content-center'>
+  <form class="text-dark" style='width: 500px;' method="post">
+      {% csrf_token %}
+      {% for field in form %}
+          <p>
+          {% translate field.label_tag %}<br>
+          {{ field }}<br>
+          {% if field.help_text %}
+            <small style="color: grey">{{ field.help_text }}</small>
+          {% endif %}
+          {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+          {% endfor %}
+          </p>
+      {% endfor %}
+      {% if page == "update_user" %}
+      <a class="btn btn-outline-danger" href="{% url 'update-password' request.user.id %}">{% translate "Change password" %}</a>
+      <br>
+      {% endif %}
+      <br>
+      <input class="btn btn-dark" type="submit" value="{% translate button_name %}">
+  </form>
+</div>
 
 {% endblock content %}

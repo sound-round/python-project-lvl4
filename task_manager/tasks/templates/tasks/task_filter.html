@@ -5,13 +5,19 @@
 <div>
     <h1>{% translate "Tasks" %}</h1>
 </div>
-
+<br>
 <div>
-    <form class="form-signin" method="get">
+    <h3>{% translate "Filter" %}</h3>
+</div>
+
+<div class='d-flex justify-content-center'>
+    
+<div>
+    <form class="" method="get">
         <!-- {{ filter.form }} -->
         <div class="row">
         {% for field in filter.form  %}
-            <div class="col-sm-2">
+            <div class='m-3'>
                 <b>{% translate field.label_tag %}</b> {{ field }} 
             </div>
         {% endfor %}
@@ -22,14 +28,14 @@
 
         </div>
         
-        <br>
-        <input class="btn btn-light" type="submit" value="{% translate 'Find' %}">
+        <input class="btn btn-outline-dark m-3" style="width: 150px" type="submit" value="{% translate 'Find' %}">
     </form>
 </div>
-<br>
-<a class="btn btn-secondary m-3" style="width: 150px" href="{% url 'create-task' %}">{% translate "Create task" %}</a>
+</div>
+<hr>
+<a class="btn btn-warning m-3" style="width: 150px" href="{% url 'create-task' %}">{% translate "Create task" %}</a>
 <div>
-    <table class="table table-secondary table-striped h5">
+    <table class="table table-striped h5">
         <thead>
             <tr>
                 <th scope="col">id</th>

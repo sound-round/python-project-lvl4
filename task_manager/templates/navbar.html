@@ -1,28 +1,28 @@
 {% load i18n %}
 
 
-<nav class="navbar navbar-light fixed-top" style="background-color: rgba(214, 214, 214, 0.548)">
+<nav class="navbar navbar-light fixed-top" style="background-color: #333333">
     <div class="container-fluid">
         
         <div class=''>
-            <a href='/' class="navbar-brand">{% translate "Task-manager" %}</a>
-            <a href="/users" class="btn btn-outline-dark m-2">{% translate "Users" %}</a>   
-            <a href="/tasks" class="btn btn-outline-dark m-2">{% translate "Tasks" %}</a>
-            <a href="/statuses" class="btn btn-outline-dark m-2">{% translate "Statuses" %}</a>
-            <a href="/labels" class="btn btn-outline-dark m-2">{% translate "Labels" %}</a>
+            <a href='/' class="navbar-brand text-light">{% translate "Task-manager" %}</a>
+            <a href="/users" class="btn btn-outline-warning m-2">{% translate "Users" %}</a>   
+            <a href="/tasks" class="btn btn-outline-warning m-2">{% translate "Tasks" %}</a>
+            <a href="/statuses" class="btn btn-outline-warning m-2">{% translate "Statuses" %}</a>
+            <a href="/labels" class="btn btn-outline-warning m-2">{% translate "Labels" %}</a>
         </div>
 
         <div class='d-flex'>
             {% if request.user.is_authenticated %}
             <div>
-                <h3 class="text-dark">@{{ request.user}}</h3>
+                <h3 class="text-light">@{{ request.user}}</h3>
             </div>
             {% endif %}
-            <div>
+            <div class='d-flex'>
                 {% if request.user.is_authenticated %}
                 <form action="/logout/" method="post">
                     {% csrf_token %}
-                    <input class="btn nav-link text-dark" type="submit" value="{% translate 'Log out' %}">
+                    <input class="btn nav-link text-light" type="submit" value="{% translate 'Log out' %}">
                 </form>
                 {% else %}
                 <a class="nav-link text-light" href="{% url 'user-login' %}">{% translate "Log in" %}</a>

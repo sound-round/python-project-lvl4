@@ -7,7 +7,7 @@
     <h1>{% translate header %}</h1>
 </div>
 
-<form class="body-confirm form-signin justify-content-center text-dark" method="post">
+<form class="text-dark" method="post">
     {% csrf_token %}
     <p>
     {% blocktranslate %}Are you sure you want to delete "{{ object }}"?{% endblocktranslate %}
