@@ -12,7 +12,11 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='label',
-            options={'ordering': ['-created'], 'verbose_name': 'Метка', 'verbose_name_plural': 'Labels'},
+            options={
+                'ordering': ['-created'],
+                'verbose_name': 'Метка',
+                'verbose_name_plural': 'Labels',
+                },
         ),
         migrations.AlterField(
             model_name='label',

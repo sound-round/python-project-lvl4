@@ -18,12 +18,17 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='labeling',
             name='task',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='tasks.task'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT, to='tasks.task'
+                ),
         ),
         migrations.AlterField(
             model_name='task',
             name='author',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, related_name='author', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(
+                null=True, on_delete=django.db.models.deletion.PROTECT,
+                related_name='author', to=settings.AUTH_USER_MODEL
+                ),
         ),
         migrations.AlterField(
             model_name='task',
@@ -33,12 +38,19 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='task',
             name='executor',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='executor', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(
+                blank=True, null=True,
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name='executor', to=settings.AUTH_USER_MODEL
+                ),
         ),
         migrations.AlterField(
             model_name='task',
             name='labels',
-            field=models.ManyToManyField(blank=True, related_name='labels', through='tasks.Labeling', to='labels.Label'),
+            field=models.ManyToManyField(
+                blank=True, related_name='labels',
+                through='tasks.Labeling', to='labels.Label'
+                ),
         ),
         migrations.AlterField(
             model_name='task',
@@ -48,6 +60,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='task',
             name='status',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='statuses.status'),
+            field=models.ForeignKey(
+                null=True, on_delete=django.db.models.deletion.PROTECT,
+                to='statuses.status'
+                ),
         ),
     ]
