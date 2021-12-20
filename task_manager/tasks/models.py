@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from task_manager.statuses.models import Status
 from task_manager.labels.models import Label
+from django.utils.translation import ugettext as _
 import django_filters
 
 
@@ -42,14 +43,17 @@ class TaskFilter(django_filters.FilterSet):
     status = django_filters.ModelChoiceFilter(
         field_name='status',
         queryset=Status.objects.all(),
+        label=_("Status"),
     )
     executor = labels = django_filters.ModelChoiceFilter(
         field_name='executor',
         queryset=User.objects.all(),
+        label=_("Executor"),
     )
     labels = django_filters.ModelChoiceFilter(
         field_name='labels',
         queryset=Label.objects.all(),
+        label=_("Label"),
     )
 
     @property

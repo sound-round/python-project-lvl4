@@ -8,10 +8,10 @@ from django.contrib.auth.password_validation import validate_password
 class UserCreateForm(UserCreationForm):
 
     first_name = forms.CharField(
-        label=_(u'First name'), max_length=30, required=False,
+        label=_('First name'), max_length=30, required=False,
     )
     last_name = forms.CharField(
-        label=_(u'Last name'), max_length=30, required=False,
+        label=_('Last name'), max_length=30, required=False,
     )
 
     class Meta:
@@ -28,14 +28,14 @@ class UserCreateForm(UserCreationForm):
 class UserUpdateForm(forms.ModelForm):
 
     username = forms.CharField(
-        label=_(u'Username'), max_length=30, required=False,
+        label=_('Username'), max_length=30, required=False,
     )
 
     first_name = forms.CharField(
-        label=_(u'First name'), max_length=30, required=False,
+        label=_('First name'), max_length=30, required=False,
     )
     last_name = forms.CharField(
-        label=_(u'Last name'), max_length=30, required=False,
+        label=_('Last name'), max_length=30, required=False,
     )
 
     class Meta:
@@ -51,7 +51,7 @@ class UserUpdateForm(forms.ModelForm):
 class PasswordUpdateForm(PasswordChangeForm):
 
     old_password = forms.CharField(
-        label=_(u'Old password'),
+        label=_('Old password'),
         max_length=50,
         widget=forms.PasswordInput(attrs={
             'class': 'form-control', 'type': 'password',
@@ -59,7 +59,7 @@ class PasswordUpdateForm(PasswordChangeForm):
         validators=[validate_password],
     )
     password1 = forms.CharField(
-        label=_(u'New password'),
+        label=_('New password'),
         max_length=50,
         widget=forms.PasswordInput(attrs={
             'class': 'form-control', 'type': 'password',
@@ -67,7 +67,7 @@ class PasswordUpdateForm(PasswordChangeForm):
         validators=[validate_password],
     )
     password2 = forms.CharField(
-        label=_(u'Confirm new password'),
+        label=_('Confirm new password'),
         max_length=50,
         widget=forms.PasswordInput(attrs={
             'class': 'form-control', 'type': 'password',

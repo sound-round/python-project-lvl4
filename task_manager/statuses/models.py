@@ -1,8 +1,9 @@
 from django.db import models
+from django.utils.translation import ugettext as _
 
 
 class Status(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(verbose_name=_('Name'), max_length=50)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

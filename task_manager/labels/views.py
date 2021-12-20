@@ -28,8 +28,8 @@ class LabelCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['header'] = "Create label"
-        context['button_name'] = "Create"
+        context['header'] = _("Create label")
+        context['button_name'] = _("Create")
         return context
 
     def get_success_url(self):
@@ -46,8 +46,8 @@ class LabelUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['header'] = "Update label"
-        context['button_name'] = "Update"
+        context['header'] = _("Update label")
+        context['button_name'] = _("Update")
         return context
 
     def get_success_url(self):
@@ -79,8 +79,8 @@ class LabelDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['header'] = "Delete label"
-        context['button_name'] = "Confirm"
-        context['back_button'] = "Back"
+        context['button_name'] = _("Confirm")
+        context['back_button'] = _("Back")
         return context
 
     def get_success_url(self):

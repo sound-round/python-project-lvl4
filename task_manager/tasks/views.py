@@ -7,7 +7,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext as _
 from django.contrib import messages
-from django.db.models import ProtectedError
 from task_manager.tasks.models import Task
 from task_manager.tasks.forms import TaskForm
 
@@ -35,8 +34,8 @@ class TaskCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['header'] = "Create task"
-        context['button_name'] = "Create"
+        context['header'] = _("Create task")
+        context['button_name'] = _("Create")
         return context
 
     def get_success_url(self):
@@ -53,8 +52,8 @@ class TaskUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['header'] = "Update task"
-        context['button_name'] = "Update"
+        context['header'] = _("Update task")
+        context['button_name'] = _("Update")
         return context
 
     def get_success_url(self):
@@ -74,27 +73,17 @@ class TaskDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
             messages.success(self.request, self.success_message)
             return super(TaskDelete, self).delete(request, *args, **kwargs)
         error_message = _(
-                'Not possible to delete the task'
+                'Not possible to delete the task '
                 'because you are not the author.'
             )
         messages.error(self.request, error_message)
-        return HttpResponseRedirect(reverse('users-list'))
-
-    def post(self, request, *args, **kwargs):
-        try:
-            return self.delete(request, *args, **kwargs)
-        except ProtectedError:
-            error_message = _(
-                'Not possible to delete the task because it is being used.'
-            )
-            messages.error(self.request, error_message)
-            return reverse('tasks-list')
+        return HttpResponseRedirect(reverse('tasks-list'))
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['header'] = "Delete task"
-        context['button_name'] = "Confirm"
-        context['back_button'] = "Back"
+        context['header'] = _("Delete task")
+        context['button_name'] = _("Confirm")
+        context['back_button'] = _("Back")
         return context
 
     def get_success_url(self):

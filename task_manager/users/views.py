@@ -28,8 +28,8 @@ class UserCreate(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['header'] = "Register user"
-        context['button_name'] = "Register"
+        context['header'] = _("Register user")
+        context['button_name'] = _("Register")
         return context
 
     def get_success_url(self):
@@ -45,8 +45,8 @@ class UserUpdate(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['header'] = "Update user"
-        context['button_name'] = "Update"
+        context['header'] = _("Update user")
+        context['button_name'] = _("Update")
         context['page'] = "update_user"
         return context
 
