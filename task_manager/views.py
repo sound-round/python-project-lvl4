@@ -16,7 +16,9 @@ def user_login(request):
         if user is not None:
             login(request, user)
             messages.success(
-                request, f"{_('Welcome to task-manager')}, {username}!"
+                request, "{}, {}!".format(
+                    _('Welcome to task-manager'), username,
+                )
                 )
             return redirect('index')
         else:

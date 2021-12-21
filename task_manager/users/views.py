@@ -10,7 +10,6 @@ from django.db.models import ProtectedError
 from django.utils.translation import ugettext as _
 from task_manager.users.forms import UserCreateForm, \
                                         UserUpdateForm, PasswordUpdateForm
-# from django.contrib.auth.decorators import login_required
 
 
 class UsersList(ListView):
@@ -18,7 +17,6 @@ class UsersList(ListView):
     model = User
     template_name = "users/list.html"
     context_object_name = 'users_list'
-    # TODO paginate_by = 15
 
 
 class UserCreate(CreateView):
@@ -36,7 +34,6 @@ class UserCreate(CreateView):
         return reverse('user-login')
 
 
-# @login_required(login_url='login')
 class UserUpdate(UpdateView):
 
     model = User
@@ -54,7 +51,6 @@ class UserUpdate(UpdateView):
         return reverse('users-list')
 
 
-# @login_required(login_url='login')
 class UserDelete(DeleteView):
 
     success_message = _("User was deleted successfully.")

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-20 14:14+0300\n"
+"POT-Creation-Date: 2021-12-21 11:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: task_manager/labels/models.py:6
+#: task_manager/labels/templates/labels/list.html:17
+#: task_manager/statuses/models.py:6
+#: task_manager/statuses/templates/statuses/list.html:17
+#: task_manager/tasks/models.py:11
+#: task_manager/tasks/templates/tasks/task_filter.html:42
+msgid "Name"
+msgstr "Имя"
+
 #: task_manager/labels/templates/labels/list.html:9
+#: task_manager/tasks/models.py:24
 #: task_manager/tasks/templates/tasks/detail.html:37
 #: task_manager/templates/navbar.html:12
 msgid "Labels"
@@ -29,13 +40,6 @@ msgstr "Метки"
 #: task_manager/labels/views.py:31
 msgid "Create label"
 msgstr "Создать метку"
-
-#: task_manager/labels/templates/labels/list.html:17
-#: task_manager/statuses/models.py:6
-#: task_manager/statuses/templates/statuses/list.html:17
-#: task_manager/tasks/templates/tasks/task_filter.html:42
-msgid "Name"
-msgstr "Имя"
 
 #: task_manager/labels/templates/labels/list.html:18
 #: task_manager/statuses/templates/statuses/list.html:18
@@ -82,7 +86,7 @@ msgid "Update label"
 msgstr "Обновить метку"
 
 #: task_manager/labels/views.py:50 task_manager/tasks/views.py:56
-#: task_manager/users/views.py:49
+#: task_manager/users/views.py:46
 msgid "Update"
 msgstr "Обновить"
 
@@ -131,30 +135,35 @@ msgstr "Статус был успешно удален."
 msgid "Not possible to delete the status because it is being used."
 msgstr "Невозможно удалить статус, который используется."
 
-#: task_manager/tasks/models.py:46
+#: task_manager/tasks/models.py:14
+msgid "Description"
+msgstr "Описание"
+
+#: task_manager/tasks/models.py:17 task_manager/tasks/models.py:55
 #: task_manager/tasks/templates/tasks/detail.html:27
 #: task_manager/tasks/templates/tasks/task_filter.html:43
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/models.py:51
+#: task_manager/tasks/models.py:29 task_manager/tasks/models.py:60
 #: task_manager/tasks/templates/tasks/detail.html:23
 #: task_manager/tasks/templates/tasks/task_filter.html:45
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/models.py:56
+#: task_manager/tasks/models.py:33
+#: task_manager/tasks/templates/tasks/detail.html:19
+#: task_manager/tasks/templates/tasks/task_filter.html:44
+msgid "Author"
+msgstr "Автор"
+
+#: task_manager/tasks/models.py:65
 msgid "Label"
 msgstr "Метка"
 
 #: task_manager/tasks/templates/tasks/detail.html:7
 msgid "Task detail"
 msgstr "Детали задачи"
-
-#: task_manager/tasks/templates/tasks/detail.html:19
-#: task_manager/tasks/templates/tasks/task_filter.html:44
-msgid "Author"
-msgstr "Автор"
 
 #: task_manager/tasks/templates/tasks/task_filter.html:6
 #: task_manager/templates/navbar.html:10
@@ -288,26 +297,30 @@ msgstr "Полное имя"
 msgid "No users yet."
 msgstr "Пользователей пока нет"
 
-#: task_manager/users/views.py:31
+#: task_manager/users/views.py:29
 msgid "Register user"
 msgstr "Регистрация пользователя"
 
-#: task_manager/users/views.py:32
-msgid "Register"
+#: task_manager/users/views.py:30
+msgid "Register"пше 
 msgstr "Регистрация"
 
-#: task_manager/users/views.py:48
+#: task_manager/users/views.py:45
 msgid "Update user"
 msgstr "Обновить пользователя"
 
-#: task_manager/users/views.py:60
+#: task_manager/users/views.py:56
 msgid "User was deleted successfully."
 msgstr "Пользователь был успешно удален."
 
-#: task_manager/users/views.py:79
+#: task_manager/users/views.py:75
 msgid "Not possible to delete this user because it is being used."
 msgstr "Невозможно удалить пользователя, который используется."
 
-#: task_manager/views.py:23
+#: task_manager/views.py:20
+msgid "Welcome to task-manager"
+msgstr "Добро пожаловать"
+
+#: task_manager/views.py:25
 msgid "Wrong username or password."
 msgstr "Неверное имя пользователя или пароль"

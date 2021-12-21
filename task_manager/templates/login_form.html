@@ -7,13 +7,13 @@
     <h1>{% translate "Log in" %}</h1>
 </div>
 <div class='d-flex justify-content-center'>
-    <form class="text-dark justify-content-around " style='width: 200px;' method="post">
+    <form class="text-dark justify-content-around " style='width: 250px;' method="post">
         {% csrf_token %}
         <!-- {{ form.as_p }} -->
         <label>{% translate "Username" %}:</label>
-        <input type='text' name='username' placeholder="{% translate 'Enter username' %}">
+        <input style='width: 220px;' type='text' name='username' placeholder="{% translate 'Enter username' %}">
         <label>{% translate "Password" %}:</label>
-        <input type='text' name='password' placeholder="{% translate 'Enter password' %}">
+        <input style='width: 220px;' type='text' name='password' placeholder="{% translate 'Enter password' %}">
         <br>
         <br>
         <input class="btn btn-warning" type="submit" value="{% translate 'Log in' %}">
