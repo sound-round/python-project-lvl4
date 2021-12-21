@@ -27,4 +27,4 @@ This project was built using these tools:
 | [poetry](https://poetry.eustace.io/)                                        | "Python dependency management and packaging made easy"   |
 | [flake8](https://flake8.pycqa.org/en/latest/)                               | "The tool for style guide enforcement"                   |
 | [github actions](https://github.com/features/actions)                       | "Automatization software workflows with  CI/CD"          |
-| [rollbar](https://https://rollbar.com/)                                     | "Error Tracking Software for Continuous Code Improvement"|
+| [rollbar](https://rollbar.com/)                                     | "Error Tracking Software for Continuous Code Improvement"|
