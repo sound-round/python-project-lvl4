@@ -7,18 +7,24 @@
     <h1>{% translate "Log in" %}</h1>
 </div>
 <div class='d-flex justify-content-center'>
-    <form class="text-dark justify-content-around " style='width: 250px;' method="post">
+    <form class="text-dark" style='width: 250px;' method="post">
         {% csrf_token %}
-        <!-- {{ form.as_p }} -->
-        <label>{% translate "Username" %}:</label>
-        <input style='width: 220px;' type='text' name='username' placeholder="{% translate 'Enter username' %}">
-        <label>{% translate "Password" %}:</label>
-        <input style='width: 220px;' type='text' name='password' placeholder="{% translate 'Enter password' %}">
+        {% for field in form %}
+          <p>
+          {% translate field.label_tag %}<br>
+          {{ field }}<br>
+          {% if field.help_text %}
+            <small style="color: grey">{{ field.help_text }}</small>
+          {% endif %}
+          {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+          {% endfor %}
+          </p>
+        {% endfor %}
         <br>
         <br>
         <input class="btn btn-warning" type="submit" value="{% translate 'Log in' %}">
     </form>
-
 </div>
 <div>
     <hr>

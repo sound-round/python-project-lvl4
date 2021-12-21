@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from task_manager.forms import UserLoginForm
 
 
 def index(request):
@@ -23,7 +24,9 @@ def user_login(request):
             return redirect('index')
         else:
             messages.error(request, _('Wrong username or password.'))
-    return render(request, 'login_form.html')
+
+    from_class = UserLoginForm
+    return render(request, 'login_form.html', {'form': from_class})
 
 
 def user_logout(request):
